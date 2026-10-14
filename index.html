@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>CS2 Loadout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;1,700&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.18"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-ct: #8fb8e8;
+        --color-ct-deep: #5c86b8;
+        --color-t: #e7b833;
+        --color-t-deep: #b38a1d;
+        --color-chrome: #e9e6df;
+        --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+        --font-item: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="m-0 h-dvh overflow-hidden bg-[#100e0c] text-chrome scheme-dark">
+    <div
+      id="stage"
+      class="h-full flex flex-col overflow-x-hidden overflow-y-auto font-item select-none"
+    >
+      <div id="band" class="relative shrink-0 w-full mt-6 overflow-hidden">
+        <div
+          id="loadout"
+          class="absolute top-0 left-1/2 w-[776px] h-[568px] origin-top"
+        >
+          <section
+            id="side-ct"
+            class="absolute left-0 top-0 w-[120px] h-[568px]"
+          ></section>
+          <section
+            id="panel"
+            class="absolute left-[120px] top-0 w-[536px] h-[568px] border-l-[3px]"
+          ></section>
+          <section
+            id="side-t"
+            class="absolute left-[656px] top-0 w-[120px] h-[568px]"
+          ></section>
+        </div>
+      </div>
+
+      <section id="drawer" class="shrink-0 flex flex-col">
+        <div class="flex flex-wrap items-center gap-3 px-4 sm:px-8 py-3">
+          <div
+            id="team-toggle"
+            class="flex w-full border border-white/15 rounded-sm overflow-hidden font-display italic font-bold uppercase text-[18px]"
+          ></div>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M1 2h18l-7 8v8l-4-2v-6z" />
+          </svg>
+          <div class="relative flex-1 min-w-[110px] max-w-[228px] h-[38px]">
+            <select
+              id="f-cat"
+              class="appearance-none w-full h-full pl-2 bg-black/25 text-[15px] font-semibold border border-white/15 rounded-sm focus-visible:outline-2 focus-visible:outline-white"
+              aria-label="Category"
+            ></select>
+            <svg
+              class="absolute right-3.5 top-[15px] pointer-events-none"
+              width="14"
+              height="9"
+              viewBox="0 0 14 9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M1 1l6 6 6-6" />
+            </svg>
+          </div>
+          <div class="relative flex-1 min-w-[110px] max-w-[228px] h-[38px]">
+            <select
+              id="f-weapon"
+              class="appearance-none w-full h-full pl-2 bg-black/25 text-[15px] font-semibold border border-white/15 rounded-sm disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-white"
+              aria-label="Weapon"
+            ></select>
+            <svg
+              class="absolute right-3.5 top-[15px] pointer-events-none"
+              width="14"
+              height="9"
+              viewBox="0 0 14 9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M1 1l6 6 6-6" />
+            </svg>
+          </div>
+          <button
+            id="f-clear"
+            class="w-[30px] h-[30px] rounded-full grid place-items-center hover:bg-white/10"
+            aria-label="Clear filters"
+          >
+            <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+              <circle cx="11" cy="11" r="10" fill="#e9e6df" />
+              <path
+                d="M7 7l8 8M15 7l-8 8"
+                stroke="#4a4036"
+                stroke-width="2.6"
+              />
+            </svg>
+          </button>
+          <svg
+            class="ml-auto"
+            width="22"
+            height="20"
+            viewBox="0 0 22 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 1h2v14h3l-4 4-4-4h3zM10 2h12v2H10zM10 7h9v2h-9zM10 12h6v2h-6z"
+            />
+          </svg>
+          <div class="relative flex-1 min-w-[110px] max-w-[228px] h-[38px]">
+            <select
+              id="f-sort"
+              class="appearance-none w-full h-full pl-2 bg-black/25 text-[15px] font-semibold border border-white/15 rounded-sm focus-visible:outline-2 focus-visible:outline-white"
+              aria-label="Sort"
+            >
+              <option value="quality">Quality</option>
+              <option value="alpha">Alphabetical</option>
+            </select>
+            <svg
+              class="absolute right-3.5 top-[15px] pointer-events-none"
+              width="14"
+              height="9"
+              viewBox="0 0 14 9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M1 1l6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+        <div
+          id="grid"
+          class="flex-1 min-h-0 overflow-y-auto px-4 sm:px-8 lg:px-[109px] pb-6 grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-x-4 lg:gap-x-[26px] gap-y-5 content-start [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-white/35 [&::-webkit-scrollbar-thumb]:rounded"
+        ></div>
+      </section>
+
+      <div
+        id="menu"
+        hidden
+        class="fixed z-20 min-w-[170px] bg-[#1f1a15] border border-white/15 shadow-xl py-1 font-display uppercase tracking-wide text-[17px]"
+      ></div>
+    </div>
+
+    <script>
+      const RARITY_ORDER = [
+        "Base Grade",
+        "Consumer Grade",
+        "Industrial Grade",
+        "Mil-Spec Grade",
+        "High Grade",
+        "Distinguished",
+        "Restricted",
+        "Remarkable",
+        "Exceptional",
+        "Classified",
+        "Exotic",
+        "Superior",
+        "Covert",
+        "Extraordinary",
+        "Master",
+        "Contraband",
+      ];
+      const rarityRank = (item) => RARITY_ORDER.indexOf(item.rarity) + 1;
+      const rarityColor = (item) => item.color || "#d4d1ca";
+
+      const W = (id, name, cat, teams) => ({ id, name, cat, teams });
+      const WEAPONS = [
+        W("glock", "Glock-18", "starting", ["t"]),
+        W("usp", "USP-S", "starting", ["ct"]),
+        W("p2000", "P2000", "starting", ["ct"]),
+        W("dualies", "Dual Berettas", "pistols", ["ct", "t"]),
+        W("p250", "P250", "pistols", ["ct", "t"]),
+        W("fiveseven", "Five-SeveN", "pistols", ["ct"]),
+        W("tec9", "Tec-9", "pistols", ["t"]),
+        W("cz75", "CZ75-Auto", "pistols", ["ct", "t"]),
+        W("deagle", "Desert Eagle", "pistols", ["ct", "t"]),
+        W("r8", "R8 Revolver", "pistols", ["ct", "t"]),
+        W("mac10", "MAC-10", "mid", ["t"]),
+        W("mp9", "MP9", "mid", ["ct"]),
+        W("mp7", "MP7", "mid", ["ct", "t"]),
+        W("mp5", "MP5-SD", "mid", ["ct", "t"]),
+        W("ump", "UMP-45", "mid", ["ct", "t"]),
+        W("p90", "P90", "mid", ["ct", "t"]),
+        W("bizon", "PP-Bizon", "mid", ["ct", "t"]),
+        W("nova", "Nova", "mid", ["ct", "t"]),
+        W("xm1014", "XM1014", "mid", ["ct", "t"]),
+        W("sawedoff", "Sawed-Off", "mid", ["t"]),
+        W("mag7", "MAG-7", "mid", ["ct"]),
+        W("m249", "M249", "mid", ["ct", "t"]),
+        W("negev", "Negev", "mid", ["ct", "t"]),
+        W("galil", "Galil AR", "rifle", ["t"]),
+        W("famas", "FAMAS", "rifle", ["ct"]),
+        W("ak47", "AK-47", "rifle", ["t"]),
+        W("m4a4", "M4A4", "rifle", ["ct"]),
+        W("m4a1s", "M4A1-S", "rifle", ["ct"]),
+        W("ssg08", "SSG 08", "rifle", ["ct", "t"]),
+        W("sg553", "SG 553", "rifle", ["t"]),
+        W("aug", "AUG", "rifle", ["ct"]),
+        W("awp", "AWP", "rifle", ["ct", "t"]),
+        W("g3sg1", "G3SG1", "rifle", ["t"]),
+        W("scar20", "SCAR-20", "rifle", ["ct"]),
+      ];
+      const WEAPON = Object.fromEntries(WEAPONS.map((w) => [w.id, w]));
+
+      const CO = (cat, name, skin, rarity, teams, c1, c2) => ({
+        id: `co-${cat}-${name}-${skin}`
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-"),
+        kind: "cosmetic",
+        cat,
+        name,
+        skin,
+        rarity,
+        teams,
+        c1,
+        c2,
+      });
+
+      const ITEMS = [
+        ...WEAPONS.map((w) => ({
+          id: "stock-" + w.id,
+          kind: "weapon",
+          weapon: w.id,
+          cat: w.cat,
+          name: w.name,
+          skin: "",
+          rarity: "stock",
+          c1: "#1d1d1d",
+          c2: "#454545",
+          stickers: 0,
+          teams: w.teams,
+          stock: true,
+        })),
+        CO(
+          "agent",
+          "Agent",
+          "Default CT",
+          "stock",
+          ["ct"],
+          "#2d3440",
+          "#4b5564",
+        ),
+        CO("agent", "Agent", "Default T", "stock", ["t"], "#4a4230", "#8a7a5a"),
+        CO(
+          "gloves",
+          "Default CT Gloves",
+          "",
+          "stock",
+          ["ct"],
+          "#3a3a30",
+          "#6a6a58",
+        ),
+        CO(
+          "gloves",
+          "Default T Gloves",
+          "",
+          "stock",
+          ["t"],
+          "#3a3a30",
+          "#6a6a58",
+        ),
+        CO(
+          "knife",
+          "Default CT Knife",
+          "",
+          "stock",
+          ["ct"],
+          "#2a2a2a",
+          "#8a8a80",
+        ),
+        CO(
+          "knife",
+          "Default T Knife",
+          "",
+          "stock",
+          ["t"],
+          "#2a2a2a",
+          "#8a8a80",
+        ),
+        CO("c4", "C4 Explosive", "", "stock", ["t"], "#4a5a3a", "#8a9a6a"),
+        CO(
+          "music",
+          "Music Kit",
+          "Counter-Strike 2",
+          "stock",
+          ["ct", "t"],
+          "#202020",
+          "#5a5a5a",
+        ),
+        CO(
+          "pin",
+          "No Collectible",
+          "",
+          "stock",
+          ["ct", "t"],
+          "#3a3a3a",
+          "#6a6a6a",
+        ),
+        CO(
+          "graffiti",
+          "Graffiti",
+          "Default",
+          "stock",
+          ["ct", "t"],
+          "#2a4a8a",
+          "#5a8ad0",
+        ),
+      ];
+      const ITEM = Object.fromEntries(ITEMS.map((i) => [i.id, i]));
+      const byName = (name) => ITEMS.find((i) => i.name === name).id;
+      const byCo = (cat, skin) =>
+        ITEMS.find(
+          (i) => i.kind === "cosmetic" && i.cat === cat && i.skin === skin,
+        ).id;
+
+      const CATS = [
+        {
+          k: "starting",
+          label: "Starting Pistol",
+          all: "All Starting Pistols",
+        },
+        { k: "pistols", label: "Other Pistols", all: "All Other Pistols" },
+        { k: "mid", label: "Mid-Tier", all: "All Mid-Tier" },
+        { k: "rifle", label: "Rifles", all: "All Rifles" },
+        { k: "agent", label: "Agents" },
+        { k: "gloves", label: "Gloves" },
+        { k: "knife", label: "Knives" },
+        { k: "c4", label: "C4", team: "t" },
+        { k: "music", label: "Music Kits" },
+        { k: "pin", label: "Collectibles" },
+        { k: "graffiti", label: "Graffiti" },
+      ];
+      const COSMETIC_COLS = {
+        ct: ["agent", "gloves", "knife", "music", "pin", "graffiti"],
+        t: ["agent", "gloves", "knife", "c4", "music", "pin", "graffiti"],
+      };
+
+      const DEFAULTS = (() => {
+        return {
+          team: "t",
+          filter: { cat: "pistols", weapon: "all", sort: "quality" },
+          sel: { cat: "pistols", idx: 0 },
+          ct: {
+            starting: "usp",
+            pistols: ["p250", "dualies", "fiveseven", "deagle"],
+            mid: ["mp9", "ump", "mp7", "xm1014", "m249"],
+            rifle: ["famas", "m4a1s", "m4a4", "aug", "awp"],
+            skins: {},
+            agent: byCo("agent", "Default CT"),
+            gloves: byName("Default CT Gloves"),
+            knife: byName("Default CT Knife"),
+            music: byCo("music", "Counter-Strike 2"),
+            pin: byName("No Collectible"),
+            graffiti: byCo("graffiti", "Default"),
+          },
+          t: {
+            starting: "glock",
+            pistols: ["p250", "tec9", "r8", "deagle"],
+            mid: ["mac10", "mp7", "p90", "m249", "nova"],
+            rifle: ["galil", "ak47", "sg553", "ssg08", "awp"],
+            skins: {},
+            agent: byCo("agent", "Default T"),
+            gloves: byName("Default T Gloves"),
+            knife: byName("Default T Knife"),
+            c4: byName("C4 Explosive"),
+            music: byCo("music", "Counter-Strike 2"),
+            pin: byName("No Collectible"),
+            graffiti: byCo("graffiti", "Default"),
+          },
+        };
+      })();
+      const defaults = () => structuredClone(DEFAULTS);
+
+      const WEAPON_SLOTS = [
+        ["starting", 1],
+        ["pistols", 4],
+        ["mid", 5],
+        ["rifle", 5],
+      ];
+
+      function packLoadout(s) {
+        const d = defaults();
+        const parts = [s.team];
+        for (const team of ["ct", "t"]) {
+          const T = s[team];
+          const weapons = [T.starting, ...T.pistols, ...T.mid, ...T.rifle].map(
+            (w) =>
+              WEAPONS.findIndex((x) => x.id === w).toString(36) +
+              (T.skins[w] ? "." + T.skins[w].replace(/^skin-/, "") : ""),
+          );
+          parts.push(weapons.join(","));
+          parts.push(
+            COSMETIC_COLS[team]
+              .map((cat) => (T[cat] === d[team][cat] ? "" : T[cat]))
+              .join(","),
+          );
+        }
+        return parts.join("|");
+      }
+
+      function unpackLoadout(text) {
+        const [team, ...rest] = text.split("|");
+        const s = defaults();
+        if (["ct", "t"].includes(team)) s.team = team;
+        ["ct", "t"].forEach((t, n) => {
+          const T = s[t];
+          const weapons = (rest[n * 2] || "").split(",");
+          let i = 0;
+          for (const [cat, count] of WEAPON_SLOTS) {
+            for (let slot = 0; slot < count; slot++, i++) {
+              const [idx, skin] = (weapons[i] || "").split(".");
+              const w = WEAPONS[parseInt(idx, 36)];
+              if (!w || w.cat !== cat || !w.teams.includes(t)) continue;
+              if (cat === "starting") T.starting = w.id;
+              else T[cat][slot] = w.id;
+              if (skin) T.skins[w.id] = "skin-" + skin;
+            }
+          }
+          const items = (rest[n * 2 + 1] || "").split(",");
+          COSMETIC_COLS[t].forEach((cat, idx) => {
+            if (items[idx]) T[cat] = items[idx];
+          });
+        });
+        return s;
+      }
+
+      async function encodeLoadout(s) {
+        const stream = new Blob([packLoadout(s)])
+          .stream()
+          .pipeThrough(new CompressionStream("deflate-raw"));
+        const bytes = new Uint8Array(await new Response(stream).arrayBuffer());
+        return btoa(String.fromCharCode(...bytes))
+          .replace(/\+/g, "-")
+          .replace(/\//g, "_")
+          .replace(/=+$/, "");
+      }
+
+      async function decodeLoadout(code) {
+        const binary = atob(code.replace(/-/g, "+").replace(/_/g, "/"));
+        const stream = new Blob([
+          Uint8Array.from(binary, (c) => c.charCodeAt(0)),
+        ])
+          .stream()
+          .pipeThrough(new DecompressionStream("deflate-raw"));
+        return unpackLoadout(await new Response(stream).text());
+      }
+
+      const STORE_KEY = "cs2-loadout-v6";
+      let state = (() => {
+        try {
+          const s = JSON.parse(localStorage.getItem(STORE_KEY));
+          if (s && s.ct && s.t) return s;
+        } catch (e) {}
+        return defaults();
+      })();
+      const save = () => {
+        try {
+          localStorage.setItem(STORE_KEY, JSON.stringify(state));
+        } catch (e) {}
+        encodeLoadout(state).then((code) =>
+          history.replaceState(null, "", "?l=" + code),
+        );
+      };
+
+      async function restoreFromUrl() {
+        const code = new URLSearchParams(location.search).get("l");
+        if (code) {
+          try {
+            state = await decodeLoadout(code);
+          } catch (e) {}
+        }
+        save();
+      }
+    </script>
+
+    <script>
+      function art(item, cls) {
+        return item.image
+          ? `<img src="${item.image}" alt="" draggable="false" loading="lazy" class="${cls} object-contain">`
+          : `<span class="${cls}"></span>`;
+      }
+    </script>
+
+    <script>
+      const THEME = {
+        t: {
+          stage:
+            "bg-[radial-gradient(70%_80%_at_50%_38%,#8d7862,#5f503f_55%,#3a3027)]",
+          panel: "bg-[#b08c3a]/40 border-[#d9b13c]",
+          head: "text-[#f1c84b]",
+          headOn: "bg-[#f1c84b] text-[#2a2008]",
+          slot: "bg-[#281e0e]/40",
+          over: "outline-[#f1c84b]",
+          drawer: "bg-[#786856]/55",
+        },
+        ct: {
+          stage:
+            "bg-[radial-gradient(70%_80%_at_50%_38%,#5e7088,#435267_55%,#2a3340)]",
+          panel: "bg-[#6084b0]/40 border-[#8fb8e8]",
+          head: "text-[#a9cdf5]",
+          headOn: "bg-[#a9cdf5] text-[#10233a]",
+          slot: "bg-[#0e1a2c]/40",
+          over: "outline-[#a9cdf5]",
+          drawer: "bg-[#566478]/55",
+        },
+      };
+
+      const $ = (id) => document.getElementById(id);
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      const label = (i) => i.name + (i.skin ? " | " + i.skin : "");
+      const slotWeapon = (team, cat, idx) =>
+        cat === "starting" ? state[team].starting : state[team][cat][idx];
+      const equippedItem = (team, wid) => {
+        const skin = ITEM[state[team].skins[wid]];
+        return skin?.weapon === wid ? skin : ITEM["stock-" + wid];
+      };
+
+      function equippedOn(team, item) {
+        if (!item.teams.includes(team)) return false;
+        const T = state[team];
+        if (item.kind === "cosmetic") return T[item.cat] === item.id;
+        const inLoadout =
+          item.cat === "starting"
+            ? T.starting === item.weapon
+            : T[item.cat].includes(item.weapon);
+        return (
+          inLoadout &&
+          (T.skins[item.weapon] || "stock-" + item.weapon) === item.id
+        );
+      }
+
+      function visibleItems() {
+        const { cat, weapon, sort } = state.filter;
+        const by = {
+          quality: (a, b) =>
+            rarityRank(b) - rarityRank(a) || a.name.localeCompare(b.name),
+          alpha: (a, b) =>
+            a.name.localeCompare(b.name) || a.skin.localeCompare(b.skin),
+        }[sort];
+        return ITEMS.filter(
+          (i) =>
+            i.cat === cat &&
+            i.teams.includes(state.team) &&
+            (weapon === "all" || i.weapon === weapon),
+        ).sort(by);
+      }
+
+      function placeWeapon(team, cat, idx, item) {
+        const T = state[team];
+        if (cat === "starting") T.starting = item.weapon;
+        else {
+          const at = T[cat].indexOf(item.weapon);
+          if (at >= 0 && at !== idx) T[cat][at] = T[cat][idx];
+          T[cat][idx] = item.weapon;
+        }
+        if (item.stock) delete T.skins[item.weapon];
+        else T.skins[item.weapon] = item.id;
+      }
+
+      function equip(team, item) {
+        const T = state[team];
+        if (item.kind === "cosmetic") {
+          T[item.cat] = item.id;
+          return;
+        }
+        const inLoadout =
+          item.cat === "starting"
+            ? T.starting === item.weapon
+            : T[item.cat].includes(item.weapon);
+        const idx =
+          item.cat === "starting"
+            ? 0
+            : inLoadout
+              ? T[item.cat].indexOf(item.weapon)
+              : state.sel.cat === item.cat && team === state.team
+                ? state.sel.idx
+                : T[item.cat].length - 1;
+        placeWeapon(team, item.cat, idx, item);
+      }
+
+      function categoryHeader(cat, text, extra) {
+        const on = state.filter.cat === cat,
+          th = THEME[state.team];
+        return `<button data-head="${cat}" class="${extra} flex items-center gap-2 h-5 px-1 font-display uppercase text-[17px] leading-none tracking-wide focus-visible:outline-2 focus-visible:outline-white ${on ? th.headOn : th.head}">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="${on ? "currentColor" : "none"}" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h16l-6 7v7l-4-2v-5z"/></svg>${text}</button>`;
+      }
+
+      function slot(cat, idx, size) {
+        const item = equippedItem(state.team, slotWeapon(state.team, cat, idx));
+        const sel = state.sel.cat === cat && state.sel.idx === idx;
+        return `<div role="button" tabindex="0" draggable="${cat !== "starting"}" data-cat="${cat}" data-idx="${idx}" title="${esc(label(item))}"
+        class="${size} grid place-items-center px-3 cursor-pointer transition-colors shadow-[inset_0_-3px_0_#ddd7c9] hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white ${sel ? "bg-white/15" : THEME[state.team].slot}">
+        ${art(item, "w-[150px] h-[62px]")}</div>`;
+      }
+
+      function renderPanel() {
+        const th = THEME[state.team];
+        const col = (left, body) =>
+          `<div class="absolute top-[42px] h-[504px] flex flex-col gap-2 ${left}">${body}</div>`;
+        const range = (n) => Array.from({ length: n }, (_, i) => i);
+        const panel = $("panel");
+        panel.className = `absolute left-[120px] top-0 w-[536px] h-[568px] border-l-[3px] transition-colors ${th.panel}`;
+        panel.innerHTML = `
+        ${categoryHeader("starting", "Starting Pistol", "absolute left-3 top-[21px]")}
+        ${categoryHeader("mid", "Mid-Tier", "absolute left-[188px] top-[21px]")}
+        ${categoryHeader("rifle", "Rifles", "absolute left-[364px] top-[21px]")}
+        ${col(
+          "left-3 w-[160px]",
+          slot("starting", 0, "h-[92px] shrink-0") +
+            categoryHeader("pistols", "Other Pistols", "w-full shrink-0") +
+            range(4)
+              .map((i) => slot("pistols", i, "flex-1"))
+              .join(""),
+        )}
+        ${col(
+          "left-[188px] w-[160px]",
+          range(5)
+            .map((i) => slot("mid", i, "flex-1"))
+            .join(""),
+        )}
+        ${col(
+          "left-[364px] w-[160px]",
+          range(5)
+            .map((i) => slot("rifle", i, "flex-1"))
+            .join(""),
+        )}`;
+      }
+
+      function renderSide(team) {
+        const active = state.team === team,
+          T = state[team];
+        const dim = active ? "" : "opacity-40 saturate-50";
+        const ct = team === "ct";
+        const cosmetics = COSMETIC_COLS[team]
+          .map((cat) => {
+            const it =
+              ITEM[T[cat]] ||
+              ITEMS.find(
+                (i) =>
+                  i.cat === cat &&
+                  i.rarity === "stock" &&
+                  i.teams.includes(team),
+              );
+            const line =
+              it.rarity === "stock" ? "rgba(255,255,255,.55)" : rarityColor(it);
+            return `<button data-cos="${cat}" data-team="${team}" title="${esc(label(it))}" style="box-shadow:inset 0 -2px 0 ${line}"
+          class="w-16 h-[60px] grid place-items-center hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-white ${active && state.filter.cat === cat ? "bg-white/15" : ""}">${art(it, "w-14 h-12")}</button>`;
+          })
+          .join("");
+        const btn = ct
+          ? active
+            ? "bg-ct text-[#10233a]"
+            : "border-2 border-ct-deep/70 text-ct-deep"
+          : active
+            ? "bg-t text-[#2a2008]"
+            : "border-2 border-t-deep/70 text-t-deep";
+        $("side-" + team).innerHTML = `
+        <button data-team-btn="${team}" class="absolute top-4 h-[34px] px-2.5 font-display italic font-bold text-[24px] leading-none uppercase ${ct ? "right-4" : "left-4"} ${btn}">Equip ${ct ? "CT" : "T"}</button>
+        <div class="absolute top-[86px] flex flex-col gap-2 transition-opacity ${ct ? "right-4" : "left-4"} ${dim}">${cosmetics}</div>`;
+      }
+
+      function renderDrawer() {
+        const team = state.team;
+        $("drawer").className =
+          `shrink-0 flex flex-col backdrop-blur-sm transition-colors ${THEME[team].drawer}`;
+        const option = (value, text, selected) =>
+          `<option value="${value}" class="bg-[#2a241e]" ${selected ? "selected" : ""}>${text}</option>`;
+        $("f-cat").innerHTML = CATS.filter((c) => !c.team || c.team === team)
+          .map((c) => option(c.k, c.label, c.k === state.filter.cat))
+          .join("");
+        const cur = CATS.find((c) => c.k === state.filter.cat);
+        const fw = $("f-weapon");
+        fw.disabled = !cur.all;
+        fw.innerHTML = cur.all
+          ? option("all", cur.all) +
+            WEAPONS.filter((w) => w.cat === cur.k && w.teams.includes(team))
+              .map((w) => option(w.id, w.name, w.id === state.filter.weapon))
+              .join("")
+          : option("all", "All " + cur.label);
+        $("f-sort").value = state.filter.sort;
+        $("team-toggle").innerHTML = ["ct", "t"]
+          .map((t) => {
+            const on = state.team === t;
+            const color =
+              t === "ct" ? "bg-ct text-[#10233a]" : "bg-t text-[#2a2008]";
+            return `<button data-team-btn="${t}" class="flex-1 h-9 uppercase ${on ? color : "text-chrome/60"}">Equip ${t.toUpperCase()}</button>`;
+          })
+          .join("");
+        const ring = (color) =>
+          `<span class="w-[18px] h-[18px] rounded-full grid place-items-center border-2" style="border-color:${color}"><span class="w-2 h-2 rounded-full" style="background:${color}"></span></span>`;
+        const stickers = (i) =>
+          Array.from(
+            { length: i.stickers },
+            () =>
+              `<span class="w-[18px] h-[18px] rounded-full opacity-90" style="background:conic-gradient(${i.c2},#fff,${i.c1},${i.c2})"></span>`,
+          ).join("");
+        const items = visibleItems();
+        $("grid").innerHTML = items.length
+          ? items
+              .map(
+                (i) => `
+        <div role="button" tabindex="0" draggable="true" data-item="${i.id}" class="group cursor-pointer focus-visible:outline-2 focus-visible:outline-white">
+          <div class="relative h-[120px] grid place-items-center px-2 bg-[radial-gradient(85%_90%_at_50%_45%,#d3d2cf,#a9a8a4_60%,#858480)] group-hover:brightness-110">
+            ${art(i, "w-full h-[90px]")}
+            <div class="absolute top-1.5 right-1.5 flex gap-1">${equippedOn("ct", i) ? ring("#5c86b8") : ""}${equippedOn("t", i) ? ring("#c99a1c") : ""}</div>
+            <div class="absolute left-2 bottom-1.5 flex gap-1.5">${stickers(i)}</div>
+          </div>
+          <div class="h-[5px]" style="background:${rarityColor(i)}"></div>
+          <div class="pt-1 text-[14px] leading-[18px] font-bold truncate">${esc(i.name)}</div>
+          <div class="text-[14px] leading-[18px] font-medium text-chrome/85 truncate">${esc(i.skin)}</div>
+        </div>`,
+              )
+              .join("")
+          : `<p class="col-span-8 pt-6 font-display uppercase tracking-wide text-chrome/70 text-lg">No items in this category</p>`;
+      }
+
+      const stage = $("stage");
+      const STAGE_BASE = stage.className;
+      function render() {
+        stage.className = `${STAGE_BASE} transition-[background] duration-300 ${THEME[state.team].stage}`;
+        renderSide("ct");
+        renderPanel();
+        renderSide("t");
+        renderDrawer();
+      }
+      const commit = () => {
+        save();
+        render();
+      };
+
+      const isShort = () => innerHeight < 600;
+
+      function fit() {
+        const w = innerWidth,
+          h = innerHeight;
+        const scale = Math.min(w / 776, (isShort() ? h - 32 : h * 0.6) / 568);
+        $("loadout").style.transform = `translateX(-50%) scale(${scale})`;
+        $("band").style.height = 568 * scale + "px";
+        $("team-toggle").hidden = 776 * scale <= w;
+        const bandHeight = 568 * scale + 24;
+        $("drawer").style.height =
+          Math.max(h - bandHeight, Math.min(h, 520)) + "px";
+      }
+      window.addEventListener("resize", fit);
+
+      const menu = $("menu");
+      function openMenu(item, el) {
+        const r = el.getBoundingClientRect();
+        const teams = [
+          ["ct", "Equip CT", "text-ct"],
+          ["t", "Equip T", "text-t"],
+          ["both", "Equip Both", ""],
+        ].filter(([k]) =>
+          k === "both" ? item.teams.length === 2 : item.teams.includes(k),
+        );
+        menu.innerHTML =
+          `<div class="px-4 pt-1.5 pb-1 mb-1 font-item normal-case text-[13px] text-chrome/60 border-b border-white/10 max-w-[260px] truncate">${esc(label(item))}</div>` +
+          teams
+            .map(
+              ([k, text, color]) =>
+                `<button data-equip="${k}" data-id="${item.id}" class="block w-full text-left px-4 py-1.5 hover:bg-white/10 ${color}">${text}</button>`,
+            )
+            .join("");
+        menu.style.left = Math.min(r.left + 20, innerWidth - 200) + "px";
+        menu.style.top = Math.min(r.top + 60, innerHeight - 140) + "px";
+        menu.hidden = false;
+      }
+
+      function setFilter(cat, weapon = "all") {
+        state.filter.cat = cat;
+        state.filter.weapon = weapon;
+        $("grid").scrollTop = 0;
+      }
+
+      stage.addEventListener("click", (e) => {
+        const eq = e.target.closest("[data-equip]");
+        if (eq) {
+          const item = ITEM[eq.dataset.id],
+            k = eq.dataset.equip;
+          (k === "both" ? ["ct", "t"] : [k]).forEach((t) => equip(t, item));
+          menu.hidden = true;
+          return commit();
+        }
+        if (!e.target.closest("#menu")) menu.hidden = true;
+        const tb = e.target.closest("[data-team-btn]");
+        if (tb) {
+          state.team = tb.dataset.teamBtn;
+          if (state.filter.cat === "c4" && state.team === "ct")
+            setFilter("pistols");
+          if (
+            state.filter.weapon !== "all" &&
+            !WEAPON[state.filter.weapon].teams.includes(state.team)
+          )
+            state.filter.weapon = "all";
+          state.sel = { cat: state.filter.cat, idx: 0 };
+          return commit();
+        }
+        const head = e.target.closest("[data-head]");
+        if (head) {
+          setFilter(head.dataset.head);
+          state.sel = { cat: head.dataset.head, idx: 0 };
+          return commit();
+        }
+        const s = e.target.closest("[data-cat]");
+        if (s) {
+          const cat = s.dataset.cat,
+            idx = +s.dataset.idx;
+          state.sel = { cat, idx };
+          setFilter(cat, slotWeapon(state.team, cat, idx));
+          return commit();
+        }
+        const c = e.target.closest("[data-cos]");
+        if (c) {
+          state.team = c.dataset.team;
+          setFilter(c.dataset.cos);
+          return commit();
+        }
+        const card = e.target.closest("[data-item]");
+        if (card) openMenu(ITEM[card.dataset.item], card);
+      });
+
+      stage.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") menu.hidden = true;
+        if (
+          (e.key === "Enter" || e.key === " ") &&
+          e.target.matches("[data-cat],[data-item]")
+        ) {
+          e.preventDefault();
+          e.target.click();
+        }
+      });
+
+      $("f-cat").addEventListener("change", (e) => {
+        setFilter(e.target.value);
+        commit();
+      });
+      $("f-weapon").addEventListener("change", (e) => {
+        state.filter.weapon = e.target.value;
+        commit();
+      });
+      $("f-sort").addEventListener("change", (e) => {
+        state.filter.sort = e.target.value;
+        commit();
+      });
+      $("f-clear").addEventListener("click", () => {
+        state.filter.weapon = "all";
+        state.filter.sort = "quality";
+        commit();
+      });
+
+      let drag = null;
+      const overClasses = () => [
+        "outline-2",
+        "-outline-offset-2",
+        THEME[state.team].over,
+      ];
+      const clearOver = () =>
+        stage.querySelectorAll("[data-over]").forEach((x) => {
+          x.classList.remove(...overClasses());
+          delete x.dataset.over;
+        });
+
+      function accepts(s) {
+        if (!s || !drag) return false;
+        if (drag.item)
+          return (
+            drag.item.kind === "weapon" &&
+            drag.item.cat === s.dataset.cat &&
+            drag.item.teams.includes(state.team)
+          );
+        return (
+          drag.from.cat === s.dataset.cat && drag.from.idx !== +s.dataset.idx
+        );
+      }
+
+      stage.addEventListener("dragstart", (e) => {
+        const card = e.target.closest("[data-item]"),
+          s = e.target.closest("[data-cat]");
+        if (card) drag = { item: ITEM[card.dataset.item] };
+        else if (s)
+          drag = { from: { cat: s.dataset.cat, idx: +s.dataset.idx } };
+        else return;
+        menu.hidden = true;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", "");
+      });
+      stage.addEventListener("dragover", (e) => {
+        const s = e.target.closest("[data-cat]");
+        if (!accepts(s)) return clearOver();
+        e.preventDefault();
+        if (s.dataset.over) return;
+        clearOver();
+        s.dataset.over = "1";
+        s.classList.add(...overClasses());
+      });
+      stage.addEventListener("drop", (e) => {
+        const s = e.target.closest("[data-cat]");
+        if (!accepts(s)) return;
+        e.preventDefault();
+        const cat = s.dataset.cat,
+          idx = +s.dataset.idx,
+          T = state[state.team];
+        if (drag.item) placeWeapon(state.team, cat, idx, drag.item);
+        else
+          [T[cat][drag.from.idx], T[cat][idx]] = [
+            T[cat][idx],
+            T[cat][drag.from.idx],
+          ];
+        state.sel = { cat, idx };
+        drag = null;
+        commit();
+      });
+      stage.addEventListener("dragend", () => {
+        drag = null;
+        clearOver();
+      });
+
+      async function loadCatalog() {
+        const API =
+          "https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/";
+        try {
+          const [weapons, skins, agents, kits, collectibles, graffiti] =
+            await Promise.all(
+              [
+                "base_weapons",
+                "skins",
+                "agents",
+                "music_kits",
+                "collectibles",
+                "graffiti",
+              ].map((f) =>
+                fetch(`${API}${f}.json`).then((r) => {
+                  if (!r.ok) throw new Error(`${f}.json: HTTP ${r.status}`);
+                  return r.json();
+                }),
+              ),
+            );
+          const sized = (url) =>
+            url && url.includes("/economy/image/") ? url + "/330x192" : url;
+          const byId = Object.fromEntries(
+            [...weapons, ...kits].map((a) => [a.id, sized(a.image)]),
+          );
+          const byName = Object.fromEntries(
+            weapons.map((w) => [w.name, sized(w.image)]),
+          );
+          const ids = {
+            "Default CT Knife": "base_weapon-weapon_knife",
+            "Default T Knife": "base_weapon-weapon_knife_t",
+            "Counter-Strike 2": "music_kit-1",
+          };
+          ITEMS.filter((i) => i.rarity === "stock").forEach((i) => {
+            i.image = byId[ids[i.name] || ids[i.skin]] || byName[i.name];
+          });
+          const standIns = {
+            "Default CT": "agent-5405",
+            "Default T": "agent-4726",
+          };
+          ITEMS.filter((i) => i.cat === "agent" && standIns[i.skin]).forEach(
+            (i) => {
+              const agent = agents.find((a) => a.id === standIns[i.skin]);
+              i.image = agent.image + "/512fx512f";
+              [i.name, i.skin] = agent.name.split(" | ");
+            },
+          );
+
+          const both = ["ct", "t"];
+          const teamsOf = (team) =>
+            team?.id === "terrorists"
+              ? ["t"]
+              : team?.id === "counter-terrorists"
+                ? ["ct"]
+                : both;
+          const entry = (src, fields) => ({
+            id: src.id,
+            image: sized(src.image),
+            rarity: src.rarity?.name || "Base Grade",
+            color: src.rarity?.color || "#b0c3d9",
+            stickers: 0,
+            ...fields,
+          });
+          const catalog = [
+            ...skins.flatMap((s) => {
+              const skin = s.pattern?.name || "";
+              const w = WEAPONS.find((x) => x.name === s.weapon?.name);
+              if (w)
+                return [
+                  entry(s, {
+                    kind: "weapon",
+                    weapon: w.id,
+                    cat: w.cat,
+                    name: w.name,
+                    skin,
+                    teams: w.teams,
+                  }),
+                ];
+              const cat = { Knives: "knife", Gloves: "gloves" }[
+                s.category?.name
+              ];
+              return cat
+                ? [
+                    entry(s, {
+                      kind: "cosmetic",
+                      cat,
+                      name: "★ " + s.weapon.name,
+                      skin,
+                      teams: both,
+                    }),
+                  ]
+                : [];
+            }),
+            ...weapons
+              .filter((b) => /weapon_(bayonet|knife_(?!t$))/.test(b.id))
+              .map((b) =>
+                entry(b, {
+                  kind: "cosmetic",
+                  cat: "knife",
+                  name: "★ " + b.name,
+                  skin: "",
+                  teams: both,
+                  rarity: "Covert",
+                  color: "#eb4b4b",
+                }),
+              ),
+            ...agents.map((a) => {
+              const [name, skin = ""] = a.name.split(" | ");
+              return entry(a, {
+                kind: "cosmetic",
+                cat: "agent",
+                name,
+                skin,
+                teams: teamsOf(a.team),
+              });
+            }),
+            ...kits
+              .filter((m) => !/StatTrak/.test(m.name) && m.id !== "music_kit-1")
+              .map((m) =>
+                entry(m, {
+                  kind: "cosmetic",
+                  cat: "music",
+                  name: "Music Kit",
+                  skin: m.name,
+                  teams: both,
+                }),
+              ),
+            ...collectibles.map((c) =>
+              entry(c, {
+                kind: "cosmetic",
+                cat: "pin",
+                name: c.name,
+                skin: c.type || "",
+                teams: both,
+              }),
+            ),
+            ...graffiti.map((g) =>
+              entry(g, {
+                kind: "cosmetic",
+                cat: "graffiti",
+                name: "Graffiti",
+                skin: g.name.replace(/^Sealed Graffiti \| /, ""),
+                teams: both,
+              }),
+            ),
+          ];
+          catalog.forEach((i) => {
+            ITEMS.push(i);
+            ITEM[i.id] = i;
+          });
+        } catch (e) {
+          console.error("Could not load the item catalogue", e);
+        }
+        render();
+      }
+
+      fit();
+      render();
+      restoreFromUrl().then(render);
+      loadCatalog();
+    </script>
+  </body>
+</html>
