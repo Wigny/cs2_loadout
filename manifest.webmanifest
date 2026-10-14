@@ -1,0 +1,22 @@
+{
+  "name": "CS2 Loadout",
+  "short_name": "Loadout",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#100e0c",
+  "theme_color": "#100e0c",
+  "icons": [
+    {
+      "src": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fh7lk6nz6XRk-fO8YaVjNP7dV2bFlesvtbM_Sn7gx010tTncmdn7ICqePQ4mWMB5EeALtRS7w4XuP_SiuVLSDPMGxQ/192fx192f",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://community.akamai.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIa-2lmxU-LR0dnuNm6E8Vl45Iv181z1fh7lk6nz6XRk-fO8YaVjNP7dV2bFlesvtbM_Sn7gx010tTncmdn7ICqePQ4mWMB5EeALtRS7w4XuP_SiuVLSDPMGxQ/512fx512f",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
